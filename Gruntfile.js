@@ -2,6 +2,7 @@ module.exports = function (grunt) {
 	"use strict";
 
 	grunt.loadNpmTasks("grunt-contrib-clean");
+	grunt.loadNpmTasks("grunt-contrib-connect");
 	grunt.loadNpmTasks("grunt-mkdir");
 	grunt.loadNpmTasks("grunt-ts");
 
@@ -23,6 +24,16 @@ module.exports = function (grunt) {
 				tsconfig: {
 					tsconfig: "src",
 					passThrough: true,
+				},
+			},
+		},
+		connect: {
+			options: {
+				debug: true,
+			},
+			dev: {
+				options: {
+					base: ["build/tsc", "src"],
 				},
 			},
 		},

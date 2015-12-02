@@ -7,6 +7,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-mkdir");
 	grunt.loadNpmTasks("grunt-ts");
+	grunt.loadNpmTasks("grunt-tsd");
 	grunt.loadNpmTasks("grunt-webpack");
 
 	grunt.registerTask("default", ["clean", "mkdir", "ts", "bowercopy", "connect:dev:keepalive"]);
@@ -27,6 +28,14 @@ module.exports = function (grunt) {
 				tsconfig: {
 					tsconfig: "src",
 					passThrough: true,
+				},
+			},
+		},
+		tsd: {
+			default: {
+				options: {
+					command: "reinstall",
+					config: "tsd.json",
 				},
 			},
 		},

@@ -1,3 +1,5 @@
+///<reference path="../.types.d.ts" />
+
 // Sample module
 
 export default function (message: string) {

@@ -4,5 +4,9 @@
   "ref": "master",
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
-  "installed": {}
+  "installed": {
+    "requirejs/require.d.ts": {
+      "commit": "715df764419937a75a25dcd76bfc954157bc7b96"
+    }
+  }
 }

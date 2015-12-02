@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"inlineSources": true,
+		"inlineSourceMap": true,
+		"removeComments": false,
+		"outDir": "../build/tsc"
+	}
+}

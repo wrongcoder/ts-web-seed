@@ -14,7 +14,10 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-tsd");
 	grunt.loadNpmTasks("grunt-webpack");
 
-	grunt.registerTask("default", ["clean", "mkdir", "ts", "bowercopy", "connect:dev:keepalive"]);
+	grunt.registerTask("init", ["clean", "mkdir", "tsd", "bowercopy"]);
+	grunt.registerTask("dev", ["init", "ts", "connect:dev:keepalive"]);
+	grunt.registerTask("dist", ["init", "ts", "webpack", "uglify", "copy", "targethtml", "less", "compress"]);
+	grunt.registerTask("test", ["dist", "connect:dist:keepalive"]);
 
 	grunt.initConfig({
 		clean: {

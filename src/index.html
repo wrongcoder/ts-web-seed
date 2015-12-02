@@ -2,9 +2,15 @@
 <html>
 <head>
 	<title>Application</title>
+	<!--(if target dev)><!-->
 	<link rel="stylesheet/less" type="text/css" href="style.less" />
 	<script src="less.js"></script>
 	<script src="require1k.js" data-main="./app/Application"></script>
+	<!--<!(endif)-->
+	<!--(if target dist)>
+	<script defer="defer" src="application.js"></script>
+	<style>@import url("style.css");</style>
+	<!(endif)-->
 </head>
 <body>
 	<p>Application</p>

@@ -4,8 +4,11 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-bowercopy");
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-connect");
+	grunt.loadNpmTasks("grunt-contrib-copy");
+	grunt.loadNpmTasks("grunt-contrib-less");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-mkdir");
+	grunt.loadNpmTasks("grunt-targethtml");
 	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-tsd");
 	grunt.loadNpmTasks("grunt-webpack");
@@ -82,6 +85,47 @@ module.exports = function (grunt) {
 				banner: "/* \u00A9 <%= uglify.options.now.getFullYear() %> example.com */",
 			},
 		},
+		copy: {
+			dist: {
+				files: [
+					{
+						expand: true,
+						cwd: "src/",
+						src: [
+							"**",
+							"!test/**",
+							"!**/*.ts", "!*.ts",
+							"!**/*.less", "!**.less",
+							"!index.html",
+							"!tsconfig.json",
+						],
+						dest: "build/dist/",
+						filter: "isFile",
+					},
+					{ src: "build/bundle/bundle.min.js", dest: "build/dist/application.js" },
+				],
+			},
+		},
+		targethtml: {
+			dist: {
+				files: {
+					"build/dist/index.html": "src/index.html",
+				},
+			},
+		},
+		less: {
+			dist: {
+				files: {
+					"build/dist/style.css": "src/style.less",
+				},
+				options: {
+					strictImports: true,
+					strictMath: true,
+					strictUnits: true,
+					cleancss: true,
+				},
+			},
+		},
 		connect: {
 			options: {
 				debug: true,
@@ -89,6 +133,11 @@ module.exports = function (grunt) {
 			dev: {
 				options: {
 					base: ["build/tsc", "src", "build/dev-resources"],
+				},
+			},
+			dist: {
+				options: {
+					base: "build/dist",
 				},
 			},
 		},

@@ -3,6 +3,7 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks("grunt-bowercopy");
 	grunt.loadNpmTasks("grunt-contrib-clean");
+	grunt.loadNpmTasks("grunt-contrib-compress");
 	grunt.loadNpmTasks("grunt-contrib-connect");
 	grunt.loadNpmTasks("grunt-contrib-copy");
 	grunt.loadNpmTasks("grunt-contrib-less");
@@ -139,6 +140,17 @@ module.exports = function (grunt) {
 				options: {
 					base: "build/dist",
 				},
+			},
+		},
+		compress: {
+			dist: {
+				options: {
+					mode: "zip",
+					archive: "build/dist.zip",
+				},
+				files: [
+					{ expand: true, cwd: "build/dist/", src: "**" },
+				],
 			},
 		},
 	});

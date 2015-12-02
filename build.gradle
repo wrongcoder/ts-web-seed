@@ -1,0 +1,15 @@
+// Facilitates importing this project into IntelliJ IDEA
+// Use grunt to actually build this project
+
+apply plugin: 'idea'
+
+idea {
+	module {
+		sourceDirs = [file("src"), file("src/app")];
+		testSourceDirs = [file("src/test")];
+		excludeDirs = [file('build')];
+		outputDir = file('build');
+		testOutputDir = file('build');
+		inheritOutputDirs = false;
+	}
+}

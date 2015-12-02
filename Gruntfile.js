@@ -15,8 +15,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-webpack");
 
 	grunt.registerTask("init", ["clean", "mkdir", "tsd", "bowercopy"]);
-	grunt.registerTask("dev", ["init", "ts", "connect:dev:keepalive"]);
-	grunt.registerTask("dist", ["init", "ts", "webpack", "uglify", "copy", "targethtml", "less", "compress"]);
+	grunt.registerTask("dev", ["init", "ts:build", "connect:dev:keepalive"]);
+	grunt.registerTask("dev-watch", ["init", "connect:dev", "ts:buildwatch"]);
+	grunt.registerTask("dist", ["init", "ts:build", "webpack", "uglify", "copy", "targethtml", "less", "compress"]);
 	grunt.registerTask("test", ["dist", "connect:dist:keepalive"]);
 
 	grunt.initConfig({
@@ -31,11 +32,18 @@ module.exports = function (grunt) {
 			},
 		},
 		ts: {
-			default: {
+			build: {
 				tsconfig: {
 					tsconfig: "src",
 					passThrough: true,
 				},
+			},
+			buildwatch: {
+				tsconfig: {
+					tsconfig: "src",
+					passThrough: true,
+				},
+				watch: "src",
 			},
 		},
 		tsd: {

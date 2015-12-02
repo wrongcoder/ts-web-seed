@@ -35,6 +35,7 @@ module.exports = function (grunt) {
 				},
 				files: {
 					"require1k.js": "require1k/require1k.js",
+					"less.js": "less/dist/less.js",
 				},
 			},
 		},

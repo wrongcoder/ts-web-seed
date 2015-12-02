@@ -1,6 +1,6 @@
 {
   "name": "bower.json",
-  "devDependencies": {
+  "dependencies": {
     "require1k": "1.0.0",
     "less": "2.5.3"
   }

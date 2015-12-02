@@ -1,0 +1,6 @@
+{
+  "name": "bower.json",
+  "devDependencies": {
+    "require1k": "1.0.0"
+  }
+}

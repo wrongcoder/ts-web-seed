@@ -4,7 +4,9 @@ This is a workflow in a can.
 
 !! Usage
 
-1. Clone
+1. Clone this repository
+1. `$ ts-web-seed/new.sh my-project`
+1. `$ cd my-project`
 1. Have Node.js and Node Package Manager on path
 1. `$ npm install -g grunt-cli`
 1. `$ npm install`

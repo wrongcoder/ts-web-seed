@@ -2,6 +2,7 @@
   "name": "bower.json",
   "dependencies": {
     "require1k": "1.0.0",
-    "less": "2.5.3"
+    "less": "2.5.3",
+    "lodash": "3.10.1"
   }
 }

@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-tsd");
 	grunt.loadNpmTasks("grunt-webpack");
 
-	grunt.registerTask("init", ["clean", "mkdir", "tsd", "bowercopy"]);
+	grunt.registerTask("init", ["clean", "mkdir", "tsd", "bowercopy:dev", "bowercopy:dist"]);
 	grunt.registerTask("dev", ["init", "ts:build", "connect:dev:keepalive"]);
 	grunt.registerTask("dev-watch", ["init", "connect:dev", "ts:buildwatch"]);
 	grunt.registerTask("dist", ["init", "ts:build", "webpack", "uglify", "copy", "targethtml", "less", "compress"]);
@@ -64,6 +64,14 @@ module.exports = function (grunt) {
 					"less.js": "less/dist/less.js",
 				},
 			},
+			dist: {
+				options: {
+					destPrefix: "build/resources",
+				},
+				files: {
+					"lodash.js": "lodash/lodash.min.js",
+				},
+			}
 		},
 		webpack: {
 			dist: {
@@ -114,6 +122,7 @@ module.exports = function (grunt) {
 						dest: "build/dist/",
 						filter: "isFile",
 					},
+					{ expand: true, cwd: "build/resources/", src: "**", dest: "build/dist/", filter: "isFile" },
 					{ src: "build/bundle/bundle.min.js", dest: "build/dist/application.js" },
 				],
 			},
@@ -144,7 +153,7 @@ module.exports = function (grunt) {
 			},
 			dev: {
 				options: {
-					base: ["build/tsc", "src", "build/dev-resources"],
+					base: ["build/tsc", "src", "build/dev-resources", "build/resources"],
 				},
 			},
 			dist: {

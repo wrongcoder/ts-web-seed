@@ -12,7 +12,7 @@ This is a workflow in a can.
 1. `$ npm install`
 1. `$ grunt init`
 1. Import `build.gradle` into IntelliJ
-1. `$ npm dev`
+1. `$ grunt dev`
 1. Edit, save, reload, repeat
-1. `$ npm test`
-1. `$ npm dist && scp build/dist.zip webhost:`
+1. `$ grunt test`
+1. `$ grunt dist && scp build/dist.zip webhost:`

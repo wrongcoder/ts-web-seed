@@ -13,7 +13,8 @@
     "grunt-ts": "5.2.0",
     "grunt-tsd": "0.1.0",
     "grunt-webpack": "1.0.11",
-    "source-map-loader": "0.1.5"
+    "source-map-loader": "0.1.5",
+    "typescript": "1.7.5"
   },
   "devDependencies": {
     "bower": "1.6.8",

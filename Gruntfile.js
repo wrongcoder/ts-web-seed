@@ -32,6 +32,9 @@ module.exports = function (grunt) {
 			},
 		},
 		ts: {
+			options: {
+				compiler: "node_modules/typescript/bin/tsc",
+			},
 			build: {
 				tsconfig: {
 					tsconfig: "src",

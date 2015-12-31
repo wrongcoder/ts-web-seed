@@ -2,18 +2,23 @@
 <html>
 <head>
 	<title>Application</title>
-	<script defer="defer" src="lodash.js"></script>
 	<!--(if target dev)><!-->
 	<link rel="stylesheet/less" type="text/css" href="style.less" />
 	<script defer="defer" src="less.js"></script>
+	<!--<!(endif)-->
+	<!--(if target dist)>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<!(endif)-->
+	<script defer="defer" src="lodash.js"></script>
+</head>
+<body>
+	<p>Application</p>
+
+	<!--(if target dev)><!-->
 	<script defer="defer" src="require1k.js" data-main="./app/Application"></script>
 	<!--<!(endif)-->
 	<!--(if target dist)>
 	<script defer="defer" src="application.js"></script>
-	<style>@import url("style.css");</style>
 	<!(endif)-->
-</head>
-<body>
-	<p>Application</p>
 </body>
 </html>

@@ -12,3 +12,4 @@
 /build
 /.tscache
 /tscommand-*.tmp.txt
+/npm-debug.log

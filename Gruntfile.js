@@ -9,6 +9,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-less");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-mkdir");
+	grunt.loadNpmTasks("grunt-prettify");
 	grunt.loadNpmTasks("grunt-targethtml");
 	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-tsd");
@@ -17,7 +18,7 @@ module.exports = function (grunt) {
 	grunt.registerTask("init", ["clean", "mkdir", "tsd", "bowercopy:dev", "bowercopy:dist"]);
 	grunt.registerTask("dev", ["init", "ts:build", "connect:dev:keepalive"]);
 	grunt.registerTask("dev-watch", ["init", "connect:dev", "ts:buildwatch"]);
-	grunt.registerTask("dist", ["init", "ts:build", "webpack", "uglify", "copy", "targethtml", "less", "compress"]);
+	grunt.registerTask("dist", ["init", "ts:build", "webpack", "uglify", "copy", "targethtml", "prettify", "less", "compress"]);
 	grunt.registerTask("test", ["dist", "connect:dist:keepalive"]);
 
 	grunt.initConfig({
@@ -133,8 +134,15 @@ module.exports = function (grunt) {
 		targethtml: {
 			dist: {
 				files: {
-					"build/dist/index.html": "src/index.html",
+					"build/html/index.html": "src/index.html",
 				},
+			},
+		},
+		prettify: {
+			dist: {
+				files: [
+					{ expand: true, cwd: "build/html/", src: "*.html", dest: "build/dist/", filter: "isFile" },
+				],
 			},
 		},
 		less: {

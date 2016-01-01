@@ -1,8 +1,8 @@
-! ts-web-seed
+# ts-web-seed
 
 This is a workflow in a can.
 
-!! Usage
+## Usage
 
 1. Clone this repository
 1. `$ ts-web-seed/new.sh my-project`

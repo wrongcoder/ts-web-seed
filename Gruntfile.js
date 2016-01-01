@@ -80,7 +80,7 @@ module.exports = function (grunt) {
 		webpack: {
 			dist: {
 				devtool: "source-map",
-				entry: "./build/tsc/app/Application",
+				entry: "./build/tsc/app/Main",
 				output: {
 					path: "build/bundle",
 					filename: "bundle.js",

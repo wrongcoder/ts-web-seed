@@ -2,7 +2,7 @@
 
 // Application goes here.
 
-console.log("Application.ts");
+console.log("Main.ts");
 
 import greet from "./Greeter";
 greet("Hello, world!");

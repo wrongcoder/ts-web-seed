@@ -46,9 +46,8 @@ git fetch --quiet "$SCRIPTDIR" HEAD
 
 EMPTYTREE=$(git mktree < /dev/null)
 NEWTREE=$(git ls-tree "$HEADTREE" | grep -vE '\b(new|update).sh\b' | git mktree)
-NEWCOMMIT=$(git commit-tree "$NEWTREE" -p "$HEADCOMMIT" -m 'Remove scripts')
 COMMIT=$(git commit-tree "$EMPTYTREE" -m "Initialize repository")
-COMMIT=$(git commit-tree "$NEWTREE" -p "$COMMIT" -p "$NEWCOMMIT" -m 'Import ts-web-seed')
+COMMIT=$(git commit-tree "$NEWTREE" -p "$COMMIT" -p "$HEADCOMMIT" -m 'Import ts-web-seed')
 
 git branch master "$COMMIT"
 git reset --quiet --hard master

@@ -36,5 +36,6 @@ git fetch --quiet "$SCRIPTDIR" HEAD
 NEWTREE=$(git ls-tree "$HEADTREE" | grep -vE '\b(new|update).sh\b' | git mktree)
 NEWCOMMIT=$(git commit-tree "$NEWTREE" -p "$HEADCOMMIT" -m 'Remove scripts')
 
-echo 'Merging ts-web-seed.'
+echo 'Updating ts-web-seed.'
 git merge "$NEWCOMMIT" -m 'Update ts-web-seed' --no-commit
+git update-ref MERGE_HEAD "$HEADCOMMIT"
